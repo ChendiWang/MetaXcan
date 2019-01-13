@@ -40,7 +40,8 @@ def build_betas(args, model, gwas_format, name):
     if model is not None:
         PF = PredictionModel.WDBQF
         base = model.weights[[PF.K_RSID, PF.K_EFFECT_ALLELE, PF.K_NON_EFFECT_ALLELE]].drop_duplicates()
-        b = GWASAndModels.align_data_to_alleles(b, base, Constants.SNP, PF.K_RSID)
+        # b = GWASAndModels.align_data_to_alleles(b, base, Constants.SNP, PF.K_RSID) # Original code
+        b = GWASAndModels_chendi.align_data_to_alleles(b, base, Constants.SNP, PF.K_RSID) # Edited by Chendi
 
     b = b.fillna("NA")
     keep = [GWAS.SNP, GWAS.ZSCORE]
