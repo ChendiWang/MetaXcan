@@ -21,6 +21,7 @@ from timeit import default_timer as timer
 
 from metax import Constants
 from metax.misc import GWASAndModels
+from metax.misc import GWASAndModels_chendi
 from metax.gwas import GWAS
 from metax.gwas import Utilities as GWASUtilities
 from metax import PredictionModel

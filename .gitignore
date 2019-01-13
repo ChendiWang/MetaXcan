@@ -26,9 +26,12 @@ setuptools*.zip
 #Pyenv
 .python-version
 
-#vs code
+# vs code
 .vscode/
 
-#data
+# data
 software/data
+
+# result
+software/result
 
