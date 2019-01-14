@@ -62,14 +62,14 @@ def align_data_to_alleles(data, base, left_on, right_on):
     # logging.info("alleles1_2 Entry 1: %s", alleles_1_2[1])
 
     # =============== Handle strand switch ===============
-    # switched = alleles_1_2 == set([u'A', u'T', u'C', u'G'])  
+    switched = alleles_1_2 == set([u'A', u'T', u'C', u'G'])  
     # switched[0] = True # Toggle this line to TEST: single case strand switch
-    switched = alleles_1_2 == set([u'A', u'G']) # Toggle this line to TEST: multiple strand switch
+    # switched = alleles_1_2 == set([u'A', u'G']) # Toggle this line to TEST: multiple strand switch
     logging.info("%s rows to be switched", sum(switched))
 
-    logging.info("EA Entry to be switched: %s", merged.loc[switched==False, EA]) ## TODO: change into --verbosity 1 level output
+    logging.info("EA Entry to be switched: %s", merged.loc[switched, EA]) ## TODO: change into --verbosity 1 level output
     merged.loc[switched, EA] = strand_switch(merged.loc[switched, EA])
-    logging.info("EA Entry after being switched: %s", merged.loc[switched==False, EA])
+    logging.info("EA Entry after being switched: %s", merged.loc[switched, EA])
 
     logging.info("NEA Entry to be switched: %s", merged.loc[switched, NEA])
     merged.loc[switched, NEA] = strand_switch(merged.loc[switched, NEA])
